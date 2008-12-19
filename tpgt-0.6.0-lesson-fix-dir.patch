@@ -1,0 +1,11 @@
+--- tpgt-0.6.0.orig/src/lesson.c	2007-08-14 11:11:05.000000000 +0200
++++ tpgt-0.6.0/src/lesson.c	2008-12-19 21:30:14.000000000 +0100
+@@ -118,7 +118,7 @@
+ 
+     if ((flesson = fopen(filename, "rb")) == NULL)
+     {
+-        strcpy(filename, "/usr/local/tpgt/lessons/"); 
++        strcpy(filename, "/usr/share/tpgt/lessons/"); 
+         strcat(filename, rlang);
+         strcat(filename, "/");
+         strcat(filename, "lesson");
