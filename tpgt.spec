@@ -2,14 +2,15 @@ Summary:	Ncurses based typing trainer program
 Summary(hu.UTF-8):	Ncurses alapú gépelést oktató program
 Name:		tpgt
 Version:	0.6.0
-Release:	0.1
+Release:	1
 License:	GPL v2
-Group:		Applications
+Group:		Applications/Text
 Source0:	http://szit.hu/tpgt/%{name}-%{version}-src.tar.gz
 # Source0-md5:	03d351f9b3081fee7b8bd850596c2de4
 Patch0:		%{name}-0.6.0-lesson-fix-dir.patch
 URL:		http://szit.hu/tpgt/
 BuildRequires:	ncurses-ext-devel
+BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -21,6 +22,7 @@ Ncurses alapú gépelést oktató program.
 %prep
 %setup -q
 %patch0 -p1
+%{__sed} -i "s@^CFLAGS.*@CFLAGS=%{rpmcflags}@" src/Makefile
 
 %build
 %{__make}
